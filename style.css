@@ -1,0 +1,115 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width:100% ;
+}
+
+@font-face {
+  font-family: "digital-7";
+  src: url("./Fonts/digital-7.ttf") format("truetype");
+}
+
+.container{
+  display: flex;
+  
+  overflow: hidden;
+  width: 350px;
+  height: 350px;
+  background-color: #1fc464;
+  flex-direction: column;
+  
+  font-size: 25px;
+
+  align-items: center;
+  border-radius: 50%;
+  border: 10px solid rgb(9, 245, 147);
+
+}
+
+.screen{
+  display: flex;
+  font-family: Digital-7;
+  height: 110px;
+  width: 200px;
+  background-color: #1fc4648c;
+  font-size: 30px;
+
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  /* vertical-align: top; */
+  /* line-height: 30px; */
+  font-weight: bold;
+}
+
+
+.volume {
+  display: flex;
+  flex-direction: column;
+  width: 24vh ;
+  border-radius: 100px;
+}
+
+#min-w {
+  border-radius: 0% 0% 50% 50%;
+  
+}
+#plus-w {
+  border-radius: 50% 50% 0% 0% ;
+}
+
+.resetBtn{
+  display: none;
+  top: 34vh;
+  text-align: center;
+  justify-content: center;
+  width: 44vh;
+  height: 50px;
+  
+}
+.startBtn{
+  top: 34vh;
+  text-align: center;
+  justify-content: center;
+  width: 44vh;
+  height: 50px;
+  
+}
+
+.changeColor {
+  
+  background: linear-gradient(to top,rgba(128, 0, 107, 0.623) 0%,rgba(156, 45, 138, 0.767),rgb(50, 50, 207), rgba(51, 255, 0, 0.61) 50% ,rgba(0, 255, 13, 0.616) 100%);
+  background-size: 100% 200%;
+  overflow: hidden;
+  /* position: relative; */
+  animation: changeColor 60s linear infinite;
+}
+
+
+.speed10X{
+  width: 10%;
+}
+
+
+
+@keyframes changeColor {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 100% 200%;
+  }
+}
+
+@keyframes unset-changeColor {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
