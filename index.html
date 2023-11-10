@@ -20,8 +20,10 @@
     </header>
     <!-- Clock container -->
     <div class="container">
-      <div id="display-time" class="screen"></div>
-
+      <div id="display-time" class="screen fs-1"></div>
+      <audio id="audio">
+        <source src="sound/iphone_annoying.mp3" type="audio/mp3" />
+      </audio>
       <div class="change-timer">
         <button class="btn btn-dark mx-1 fw-bolder" id="add-time">+</button>
 
@@ -30,7 +32,7 @@
         </button>
       </div>
       <!-- start/reset timer -->
-      <button id="start-btn" class="startBtn btn btn-success w-75">
+      <button id="start-btn" class="startBtn btn btn-success w-75 mt-2">
         Start
       </button>
       <button id="reset-btn" class="btn btn-danger resetBtn w-75">Reset</button>

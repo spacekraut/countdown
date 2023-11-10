@@ -1,9 +1,10 @@
 let session = {
-  alarmTime: 25,
+  alarmTime: 1,
 };
 
 let timer;
 let isRunning = false;
+// Sound variable
 
 $("#display-time").text(`${session.alarmTime}:00`);
 
@@ -15,13 +16,17 @@ const setSession = (session) => {
 
 // Add and decrease Time
 $("#add-time").click(function () {
-  session.alarmTime++;
-  setSession(session);
+  if (!isRunning) {
+    session.alarmTime++;
+    setSession(session);
+  }
 });
 
 $("#decrease-time").click(function () {
-  session.alarmTime--;
-  setSession(session);
+  if (!isRunning) {
+    session.alarmTime--;
+    setSession(session);
+  }
 });
 
 //Format Time
@@ -32,10 +37,23 @@ function manageTime(session) {
   return remainedMinutes, remainedSeconds;
 }
 
-// Start countdown timer
+// Toggle Buttons Hide/Show Reset/Start
 $("#start-btn").click(() => {
+  isRunning = true;
+  $("#start-btn").hide("slow");
+  $("#reset-btn").show("slow");
   startTimer(session);
 });
+$("#reset-btn").click(() => {
+  $("#reset-btn").hide("slow");
+  $("#start-btn").show("slow");
+  isRunning = false;
+  clearInterval(timer);
+  $("#display-time").text(`${session.alarmTime}:00`);
+  $("audio#audio")[0].pause();
+});
+
+//Start Timer
 const startTimer = (session) => {
   manageTime(session);
   let timeLeft = session.alarmTime * 60;
@@ -51,28 +69,7 @@ const startTimer = (session) => {
       );
     } else {
       clearInterval(timer);
+      $("audio#audio")[0].play();
     }
   }, 100);
-};
-
-// Reset Timer Function
-const resetTimer = () => {
-  $("#display-time").text(session.alarmTime);
-  clearInterval(timer);
-};
-
-const start = () => { 
-  isRunning = true;
-  startTimer(session.alarmTime);
-  startBtn.style.display = "none";
-  resetBtn.style.display = "flex";
-};
-
-const reset = () => {
-  startBtn.style.display = "flex";
-  resetBtn.style.display = "none";
-  isRunning = false;
-  clearInterval(timer);
-  Screen.classList.remove("changeColor");
-  Screen.textContent = `${session.alarmTime}:00`;
 };
