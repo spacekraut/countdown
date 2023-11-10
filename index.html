@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <!-- Local CSS -->
     <link rel="stylesheet" href="style.css" />
 
     <title>jQuery CountDown</title>
@@ -25,9 +27,11 @@
         <source src="sound/iphone_annoying.mp3" type="audio/mp3" />
       </audio>
       <div class="change-timer">
-        <button class="btn btn-dark fw-bolder" id="add-time">&plus;</button>
+        <button class="btn btn-dark fw-bolder fs-3" id="add-time">
+          &plus;
+        </button>
 
-        <button class="btn btn-dark my-1 fw-bolder" id="decrease-time">
+        <button class="btn btn-dark my-1 fw-bolder fs-3" id="decrease-time">
           &minus;
         </button>
       </div>
@@ -37,7 +41,9 @@
       </button>
       <button id="reset-btn" class="btn btn-danger resetBtn w-75">Reset</button>
     </div>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <!-- Local Script -->
     <script src="script.js"></script>
   </body>
 </html>

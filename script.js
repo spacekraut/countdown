@@ -40,14 +40,14 @@ const manageTime = (session) => {
 // Toggle Buttons Hide/Show Reset/Start
 $("#start-btn").click(() => {
   isRunning = true;
-  $("#start-btn").hide("slow");
-  $("#reset-btn").show("slow");
+  $("#start-btn").hide();
+  $("#reset-btn").show();
   startTimer(session);
 });
 $("#reset-btn").click(() => {
   $(".container").removeClass("changeColor");
-  $("#reset-btn").hide("slow");
-  $("#start-btn").show("slow");
+  $("#reset-btn").hide();
+  $("#start-btn").show();
   isRunning = false;
   clearInterval(timer);
   $("#display-time").text(`${session.alarmTime}:00`);
