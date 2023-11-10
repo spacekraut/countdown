@@ -15,27 +15,27 @@ const setSession = (session) => {
 };
 
 // Add and decrease Time
-$("#add-time").click(function () {
+$("#add-time").click(() => {
   if (!isRunning) {
     session.alarmTime++;
     setSession(session);
   }
 });
 
-$("#decrease-time").click(function () {
-  if (!isRunning) {
+$("#decrease-time").click(() => {
+  if (!isRunning && session.alarmTime > 1) {
     session.alarmTime--;
     setSession(session);
   }
 });
 
 //Format Time
-function manageTime(session) {
+const manageTime = (session) => {
   seconds = session.alarmTime * 60 - 1;
   remainedSeconds = seconds % 60;
   remainedMinutes = Math.floor(seconds / 60);
   return remainedMinutes, remainedSeconds;
-}
+};
 
 // Toggle Buttons Hide/Show Reset/Start
 $("#start-btn").click(() => {
@@ -45,6 +45,7 @@ $("#start-btn").click(() => {
   startTimer(session);
 });
 $("#reset-btn").click(() => {
+  $(".container").removeClass("changeColor");
   $("#reset-btn").hide("slow");
   $("#start-btn").show("slow");
   isRunning = false;
@@ -55,6 +56,7 @@ $("#reset-btn").click(() => {
 
 //Start Timer
 const startTimer = (session) => {
+  $(".container").addClass("changeColor");
   manageTime(session);
   let timeLeft = session.alarmTime * 60;
   timer = setInterval(() => {
@@ -71,5 +73,5 @@ const startTimer = (session) => {
       clearInterval(timer);
       $("audio#audio")[0].play();
     }
-  }, 100);
+  }, 1000);
 };

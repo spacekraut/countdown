@@ -31,9 +31,7 @@ body {
   font-family: Digital-7;
   height: 110px;
   width: 200px;
-  background-color: #1fc4648c;
-  font-size: 30px;
-
+  background-color: rgb(31, 196, 100);
   border-radius: 5px;
   align-items: center;
   justify-content: center;
@@ -42,18 +40,13 @@ body {
   font-weight: bold;
 }
 
-.volume {
-  display: flex;
-  flex-direction: column;
-  width: 24vh;
-  border-radius: 100px;
+#decrease-time {
+  border-radius: 0% 50% 50% 0%;
+  width: 50px;
 }
-
-#min-w {
-  border-radius: 0% 0% 50% 50%;
-}
-#plus-w {
-  border-radius: 50% 50% 0% 0%;
+#add-time {
+  border-radius: 50% 0% 0% 50%;
+  width: 50px;
 }
 
 .resetBtn {
@@ -63,6 +56,7 @@ body {
   justify-content: center;
   width: 44vh;
   height: 50px;
+  margin-top: 10px;
 }
 .startBtn {
   top: 34vh;
@@ -75,7 +69,7 @@ body {
 .changeColor {
   background: linear-gradient(
     to top,
-    rgba(128, 0, 107, 0.623) 0%,
+    #80006b9f 0%,
     rgba(156, 45, 138, 0.767),
     rgb(50, 50, 207),
     rgba(51, 255, 0, 0.61) 50%,
