@@ -1,36 +1,32 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
   height: 100%;
-  width:100% ;
+  width: 100%;
 }
 
-@font-face {
+/* @font-face {
   font-family: "digital-7";
   src: url("./Fonts/digital-7.ttf") format("truetype");
-}
+} */
 
-.container{
+.container {
   display: flex;
-  
   overflow: hidden;
   width: 350px;
   height: 350px;
   background-color: #1fc464;
   flex-direction: column;
-  
   font-size: 25px;
-
   align-items: center;
   border-radius: 50%;
   border: 10px solid rgb(9, 245, 147);
-
 }
 
-.screen{
+.screen {
   display: flex;
   font-family: Digital-7;
   height: 110px;
@@ -46,55 +42,54 @@ body {
   font-weight: bold;
 }
 
-
 .volume {
   display: flex;
   flex-direction: column;
-  width: 24vh ;
+  width: 24vh;
   border-radius: 100px;
 }
 
 #min-w {
   border-radius: 0% 0% 50% 50%;
-  
 }
 #plus-w {
-  border-radius: 50% 50% 0% 0% ;
+  border-radius: 50% 50% 0% 0%;
 }
 
-.resetBtn{
+.resetBtn {
   display: none;
   top: 34vh;
   text-align: center;
   justify-content: center;
   width: 44vh;
   height: 50px;
-  
 }
-.startBtn{
+.startBtn {
   top: 34vh;
   text-align: center;
   justify-content: center;
   width: 44vh;
   height: 50px;
-  
 }
 
 .changeColor {
-  
-  background: linear-gradient(to top,rgba(128, 0, 107, 0.623) 0%,rgba(156, 45, 138, 0.767),rgb(50, 50, 207), rgba(51, 255, 0, 0.61) 50% ,rgba(0, 255, 13, 0.616) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(128, 0, 107, 0.623) 0%,
+    rgba(156, 45, 138, 0.767),
+    rgb(50, 50, 207),
+    rgba(51, 255, 0, 0.61) 50%,
+    rgba(0, 255, 13, 0.616) 100%
+  );
   background-size: 100% 200%;
   overflow: hidden;
   /* position: relative; */
   animation: changeColor 60s linear infinite;
 }
 
-
-.speed10X{
+.speed10X {
   width: 10%;
 }
-
-
 
 @keyframes changeColor {
   0% {

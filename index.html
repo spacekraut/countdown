@@ -10,39 +10,32 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
     <title>jQuery CountDown</title>
   </head>
   <body class="bg-dark">
+    <!-- Header -->
     <header>
       <h1 class="text-center text-light display-4">Start your CountDown!</h1>
     </header>
+    <!-- Clock container -->
     <div class="container">
-      <div class="screen">25:00</div>
+      <div id="display-time" class="screen"></div>
 
-      <div class="volume">
-        <button
-          class="btn btn-dark mx-1 fw-bolder"
-          id="plus-w"
-          onclick="Volume(this)"
-        >
-          +
-        </button>
+      <div class="change-timer">
+        <button class="btn btn-dark mx-1 fw-bolder" id="add-time">+</button>
 
-        <button
-          class="btn btn-dark my-1 mx-1 fw-bolder"
-          id="min-w"
-          onclick="Volume(this)"
-        >
+        <button class="btn btn-dark my-1 mx-1 fw-bolder" id="decrease-time">
           -
         </button>
       </div>
-
-      <button class="startBtn btn btn-success" onclick="start()">Start</button>
-
-      <button class="btn btn-danger resetBtn" onclick="reset()">Reset</button>
+      <!-- start/reset timer -->
+      <button id="start-btn" class="startBtn btn btn-success w-75">
+        Start
+      </button>
+      <button id="reset-btn" class="btn btn-danger resetBtn w-75">Reset</button>
     </div>
-
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
