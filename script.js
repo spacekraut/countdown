@@ -1,8 +1,4 @@
-let session = {
-  alarmTime: 25,
-  
-};
-let { alarmTime } = session;
+let alarmTime= 25
 let timer;
 let isRunning= false
 // Sound variable
@@ -10,7 +6,7 @@ let isRunning= false
 $("#display-time").text(`${alarmTime}:00`);
 
 //Set Session
-const setSession = (session) => {
+const setSession = (alarmTime) => {
   $("#display-time").text(`
    ${alarmTime}:00`);
 };
@@ -19,19 +15,19 @@ $("#add-time").click(() => {
   if (!isRunning) {
    
     alarmTime++;
-    setSession(session);
+    setSession(alarmTime);
   }
 });
 
 $("#decrease-time").click(() => {
   if (!isRunning && alarmTime > 1) {
     alarmTime--;
-    setSession(session);
+    setSession(alarmTime);
   }
 });
 
 //Format Time
-const manageTime = (session) => {
+const manageTime = (alarmTime) => {
   seconds = alarmTime * 60 - 1;
   remainedSeconds = seconds % 60;
   remainedMinutes = Math.floor(seconds / 60);
@@ -47,7 +43,7 @@ const toggleButtons = (startBtn, resetBtn, isRunning) => {
 $("#start-btn").click(() => {
   isRunning = true;
   toggleButtons($("#start-btn"), $("#reset-btn"), isRunning);
-  startTimer(session);
+  startTimer(alarmTime);
 });
 
 $("#reset-btn").click(() => {
@@ -62,9 +58,9 @@ $("#reset-btn").click(() => {
 
 
 
-const startTimer = (session) =>{
+const startTimer = (alarmTime) =>{
 
-  manageTime(session);
+  manageTime(alarmTime);
   let timeLeft = alarmTime * 60;
   
    //Animation
