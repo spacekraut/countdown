@@ -1,5 +1,5 @@
 let session = {
-  alarmTime: 15,
+  alarmTime: 25,
   isRunning: false,
 };
 let { alarmTime } = session;
