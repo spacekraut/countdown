@@ -1,10 +1,10 @@
 let session = {
   alarmTime: 25,
-  isRunning: false,
+  
 };
 let { alarmTime } = session;
 let timer;
-
+let isRunning= false
 // Sound variable
 
 $("#display-time").text(`${alarmTime}:00`);
@@ -17,7 +17,8 @@ const setSession = (session) => {
 // Add and decrease Time
 $("#add-time").click(() => {
   if (!isRunning) {
-    session.alarmTime++;
+   
+    alarmTime++;
     setSession(session);
   }
 });
@@ -58,16 +59,13 @@ $("#reset-btn").click(() => {
   $("audio#audio")[0].pause();
 });
 
-//Animation CSS
-const animationContainer = () => {
-  const container = $(".container");
-  container.css("animation", `changeColor ${alarmTime * 60}s linear`);
-  container.addClass("changeColor");
-};
+
 
 //Start Timer
 const startTimer = (session) => {
-  animationContainer();
+  //Animation
+  $(".container").addClass("changeColor");
+  
   manageTime(session);
   let timeLeft = alarmTime * 60;
   timer = setInterval(() => {
@@ -83,6 +81,7 @@ const startTimer = (session) => {
     } else {
       clearInterval(timer);
       $("audio#audio")[0].play();
+      $(".container").removeClass("changeColor");
     }
   }, 1000);
 };
