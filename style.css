@@ -7,7 +7,6 @@ body {
   height: 100%;
   width: 100%;
   background-color: antiquewhite;
-  /* background-image: url("img/time.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -31,7 +30,7 @@ body {
   align-items: center;
   border-radius: 50%;
   border: 15px solid #000000a1;
-
+  
 }
 
 .screen {
@@ -47,11 +46,10 @@ body {
 }
 
 #decrease-time {
-  border-radius: 50% 0% 0% 50%;
+  border-radius:  50% 0% 0% 50%; 
   width: 50px;
 }
 #add-time {
-  
   border-radius: 0% 50% 50% 0%;
   width: 50px;
 }
@@ -97,14 +95,5 @@ body {
   }
   100% {
     background-position: 100% 200%;
-  }
-}
-
-@keyframes unset-changeColor {
-  0% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 100% 100%;
   }
 }

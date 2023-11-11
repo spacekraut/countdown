@@ -51,7 +51,7 @@ $("#start-btn").click(() => {
 });
 
 $("#reset-btn").click(() => {
-  $(".container").removeClass("changeColor");
+  $(".container").toggleClass("changeColor");
   toggleButtons($("#start-btn"), $("#reset-btn"), false);
   isRunning = false;
   clearInterval(timer);
@@ -61,13 +61,16 @@ $("#reset-btn").click(() => {
 
 
 
-//Start Timer
-const startTimer = (session) => {
-  //Animation
-  $(".container").addClass("changeColor");
-  
+
+const startTimer = (session) =>{
+
   manageTime(session);
   let timeLeft = alarmTime * 60;
+  
+   //Animation
+  $(".container").css("animation-duration", `${alarmTime * 60}s`);
+  $(".container").toggleClass("changeColor");
+  
   timer = setInterval(() => {
     timeLeft--;
     if (timeLeft >= 0) {
@@ -81,7 +84,7 @@ const startTimer = (session) => {
     } else {
       clearInterval(timer);
       $("audio#audio")[0].play();
-      $(".container").removeClass("changeColor");
+      $(".container").toggleClass("changeColor");
     }
   }, 1000);
 };
