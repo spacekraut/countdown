@@ -1,4 +1,6 @@
 # countdown
+![image](https://github.com/spacekraut/countdown/assets/117397454/3e7974f3-e20e-4528-a8aa-482a408c52a1)
+
 That's a project from Matrix Master Bootcamp #14
 
 These were the instructions: 
