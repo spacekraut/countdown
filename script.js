@@ -1,19 +1,19 @@
 let session = {
-  alarmTime: 1,
+  alarmTime: 15,
+  isRunning: false,
 };
-
+let { alarmTime } = session;
 let timer;
-let isRunning = false;
+
 // Sound variable
 
-$("#display-time").text(`${session.alarmTime}:00`);
+$("#display-time").text(`${alarmTime}:00`);
 
 //Set Session
 const setSession = (session) => {
   $("#display-time").text(`
-   ${session.alarmTime} min`);
+   ${alarmTime}:00`);
 };
-
 // Add and decrease Time
 $("#add-time").click(() => {
   if (!isRunning) {
@@ -23,42 +23,53 @@ $("#add-time").click(() => {
 });
 
 $("#decrease-time").click(() => {
-  if (!isRunning && session.alarmTime > 1) {
-    session.alarmTime--;
+  if (!isRunning && alarmTime > 1) {
+    alarmTime--;
     setSession(session);
   }
 });
 
 //Format Time
 const manageTime = (session) => {
-  seconds = session.alarmTime * 60 - 1;
+  seconds = alarmTime * 60 - 1;
   remainedSeconds = seconds % 60;
   remainedMinutes = Math.floor(seconds / 60);
   return remainedMinutes, remainedSeconds;
 };
 
 // Toggle Buttons Hide/Show Reset/Start
+const toggleButtons = (startBtn, resetBtn, isRunning) => {
+  startBtn.toggle(!isRunning);
+  resetBtn.toggle(isRunning);
+};
+
 $("#start-btn").click(() => {
   isRunning = true;
-  $("#start-btn").hide();
-  $("#reset-btn").show();
+  toggleButtons($("#start-btn"), $("#reset-btn"), isRunning);
   startTimer(session);
 });
+
 $("#reset-btn").click(() => {
   $(".container").removeClass("changeColor");
-  $("#reset-btn").hide();
-  $("#start-btn").show();
+  toggleButtons($("#start-btn"), $("#reset-btn"), false);
   isRunning = false;
   clearInterval(timer);
-  $("#display-time").text(`${session.alarmTime}:00`);
+  $("#display-time").text(`${alarmTime}:00`);
   $("audio#audio")[0].pause();
 });
 
+//Animation CSS
+const animationContainer = () => {
+  const container = $(".container");
+  container.css("animation", `changeColor ${alarmTime * 60}s linear`);
+  container.addClass("changeColor");
+};
+
 //Start Timer
 const startTimer = (session) => {
-  $(".container").addClass("changeColor");
+  animationContainer();
   manageTime(session);
-  let timeLeft = session.alarmTime * 60;
+  let timeLeft = alarmTime * 60;
   timer = setInterval(() => {
     timeLeft--;
     if (timeLeft >= 0) {
